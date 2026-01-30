@@ -16,25 +16,31 @@ export default function TeamCard({
       w="300px"
       bg="white"
       borderRadius="lg"
-      boxShadow="md"
+      border="1px solid"
+      borderColor="gray.300"
+      boxShadow="sm"
       overflow="hidden"
     >
       {/* Top banner */}
-      <Box h="90px" bg="gray.400" />
+      <Box
+        h="120px"
+        bgGradient="linear(to-br, #2A0D04, #5A2A0F)"
+      />
 
       {/* Content */}
-      <Box position="relative" p={5} pt={12} textAlign="center">
+      <Box position="relative" p={6} pt={14} textAlign="center">
         {/* Avatar placeholder */}
         <Box
           position="absolute"
-          top="-35px"
+          top="-60px"
           left="50%"
           transform="translateX(-50%)"
-          w="70px"
-          h="70px"
-          bg="gray.300"
+          w="120px"
+          h="120px"
+          bg="gray.200"
           borderRadius="full"
-          border="3px solid white"
+          border="4px solid white"
+          boxShadow="0 3px 6px rgba(0,0,0,0.2)"
         />
 
         <Text fontSize="lg" fontWeight="bold">
