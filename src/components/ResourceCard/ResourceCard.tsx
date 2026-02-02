@@ -18,11 +18,11 @@ export default function ResourceCard({
   const cardContents = (
     <>
       <Flex
-        align="center"
+        align="flex-start"
         justify="space-between"
         gap={4}
         p={5}
-        bgGradient="linear(to-br, #2A0D04, #5A2A0F)"
+        bg="#5A2A0F"
       >
         <Text fontSize="xl" fontWeight="bold" color="white">
           {title}
@@ -48,7 +48,22 @@ export default function ResourceCard({
               objectFit="contain"
             />
           ) : (
-            <Box w="60%" h="60%" bg="gray.200" borderRadius="sm" />
+            <Box
+              w="70%"
+              h="70%"
+              bg="gray.100"
+              borderRadius="sm"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Image
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3' y='4' width='18' height='16' rx='2' ry='2' fill='none' stroke='%239CA3AF' stroke-width='1.5'/><circle cx='9' cy='10' r='1.5' fill='%239CA3AF'/><path d='M7 17l4-5 3 4 2-2 3 3' fill='none' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+                alt="Placeholder"
+                boxSize={6}
+                opacity={0.9}
+              />
+            </Box>
           )}
         </Box>
       </Flex>
