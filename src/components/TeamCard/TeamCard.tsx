@@ -31,7 +31,7 @@ export default function TeamCard({
 
       {/* Content */}
       <Box position="relative" p={6} pt={16} textAlign="center">
-        {/* Avatar placeholder */}
+        {/* Avatar placeholder  */}
         <Box
           position="absolute"
           top="-66px"
