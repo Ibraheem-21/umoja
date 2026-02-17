@@ -23,7 +23,7 @@ export default function TeamCard({
       boxShadow="0 8px 18px rgba(0,0,0,0.12)"
       overflow="hidden"
     >
-      {/* Top banner */}
+      {/* Top banner  */}
       <Box
         h="120px"
         bg="#5A1D0D"
@@ -63,3 +63,4 @@ export default function TeamCard({
     </Box>
   );
 }
+
