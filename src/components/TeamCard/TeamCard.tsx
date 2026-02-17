@@ -1,60 +1,66 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Avatar, Box, Text } from "@chakra-ui/react";
 
 type TeamCardProps = {
   name: string;
   position: string;
-  description: string;
+  description?: string;
+  imageUrl?: string;
 };
 
 export default function TeamCard({
   name,
   position,
   description,
+  imageUrl,
 }: TeamCardProps) {
   return (
     <Box
-      w="300px"
+      w={{ base: "100%", sm: "300px" }}
       bg="white"
-      borderRadius="lg"
+      borderRadius="xl"
       border="1px solid"
-      borderColor="gray.300"
-      boxShadow="sm"
+      borderColor="blackAlpha.300"
+      boxShadow="0 8px 18px rgba(0,0,0,0.12)"
       overflow="hidden"
     >
-      {/* Top banner */}
+      {/* Top banner  */}
       <Box
         h="120px"
-        bgGradient="linear(to-br, #2A0D04, #5A2A0F)"
+        bg="#5A1D0D"
       />
 
       {/* Content */}
-      <Box position="relative" p={6} pt={14} textAlign="center">
-        {/* Avatar placeholder */}
-        <Box
+      <Box position="relative" p={6} pt={16} textAlign="center">
+        <Avatar.Root
           position="absolute"
-          top="-60px"
+          top="-66px"
           left="50%"
           transform="translateX(-50%)"
           w="120px"
           h="120px"
-          bg="gray.200"
-          borderRadius="full"
           border="4px solid white"
-          boxShadow="0 3px 6px rgba(0,0,0,0.2)"
-        />
+          boxShadow="0 6px 10px rgba(0,0,0,0.18)"
+          overflow="hidden"
+        >
+          <Avatar.Fallback name={name} />
+          {imageUrl ? <Avatar.Image src={imageUrl} alt={`${name} avatar`} /> : null}
+        </Avatar.Root>
 
-        <Text fontSize="lg" fontWeight="bold">
+        <Text as="h3" fontSize="xl" fontWeight="bold" color="gray.800">
           {name}
         </Text>
 
-        <Text fontSize="sm" color="gray.600" fontStyle="italic">
+        <Text fontSize="md" color="gray.700" fontStyle="italic">
           {position}
         </Text>
 
-        <Text mt={3} fontSize="sm" color="gray.700">
-          {description}
-        </Text>
+        {description ? (
+          <Text mt={3} fontSize="sm" color="gray.700">
+            {description}
+          </Text>
+        ) : null}
       </Box>
     </Box>
   );
 }
+

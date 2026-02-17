@@ -1,19 +1,49 @@
-import { Box, Container, Heading } from "@chakra-ui/react";
-import ResourceModal from "../../components/ResourceModal/ResourceModal";
+"use client";
 
-const longDescription =
-  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.";
+import { Box, Center, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import TeamCard from "@/components/TeamCard/TeamCard";
 
-export default function TestPages() {
+const demoAvatar =
+  "data:image/svg+xml;utf8," +
+  "<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>" +
+  "<rect width='240' height='240' fill='%23d9d9d9'/>" +
+  "<circle cx='120' cy='92' r='34' fill='%23999999'/>" +
+  "<ellipse cx='120' cy='162' rx='64' ry='34' fill='%23999999'/>" +
+  "</svg>";
+
+export default function TeamCardTestPage() {
   return (
-    <Container maxW="container.xl" py={{ base: 8, md: 12 }}>
-      <Heading size="lg" mb={6}>
-        Resource Modal Test
-      </Heading>
+    <Box minH="100vh" bg="gray.50" px={6} py={10}>
+      <Center mb={6} textAlign="center" flexDirection="column" gap={2}>
+        <Heading size="lg">TeamCard Test</Heading>
+        <Text color="gray.600">
+          Visual QA: image avatar, fallback avatar, and optional description.
+        </Text>
+      </Center>
 
-      <Box>
-        <ResourceModal title="Long Title" description={longDescription} />
-      </Box>
-    </Container>
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={10} maxW="1100px" mx="auto">
+        <Center>
+          <TeamCard
+            name="Amina Diallo"
+            position="Community Partnerships"
+            description="Connects local organizers with resources and helps grow inclusive, high-impact programs."
+            imageUrl={demoAvatar}
+          />
+        </Center>
+        <Center>
+          <TeamCard
+            name="No Image"
+            position="Program Coordinator"
+            description="Avatar fallback should render initials when no image is provided."
+          />
+        </Center>
+        <Center>
+          <TeamCard
+            name="No Description"
+            position="Volunteer Lead"
+          />
+        </Center>
+      </SimpleGrid>
+    </Box>
   );
 }
