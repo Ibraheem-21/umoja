@@ -4,7 +4,6 @@ import {
   Heading,
   HStack,
   Image,
-  Link,
   Stack,
   Text,
   Wrap,
@@ -120,14 +119,28 @@ export function EventCard({
 
           <Stack flex="1" justify="space-between" minH={{ base: "140px", md: "220px" }}>
             <Stack align="center" gap={1} textAlign="center" pt={{ base: 0, md: 2 }}>
-              <Heading as="h3" color="black" fontWeight="800" fontSize={{ base: "2xl", md: "4xl" }}>
+              <Heading
+                as="h3"
+                color="black"
+                fontWeight="800"
+                fontSize={{ base: "2xl", md: "4xl" }}
+                lineClamp={2}
+                overflowWrap="anywhere"
+              >
                 {title}
               </Heading>
               <Text color="black" fontWeight="700" fontSize={{ base: "xl", md: "3xl" }} lineHeight="1.1">
                 {date}
                 {time ? ` | ${time}` : ""}
               </Text>
-              <Text color="black" fontWeight="600" fontSize={{ base: "lg", md: "2xl" }} lineHeight="1.1">
+              <Text
+                color="black"
+                fontWeight="600"
+                fontSize={{ base: "lg", md: "2xl" }}
+                lineHeight="1.1"
+                lineClamp={1}
+                overflowWrap="anywhere"
+              >
                 {location}
               </Text>
             </Stack>
@@ -138,28 +151,29 @@ export function EventCard({
               px={{ base: 0, md: 3 }}
               fontSize={{ base: "sm", md: "2xl" }}
               lineHeight="1.5"
+              lineClamp={3}
+              overflowWrap="anywhere"
             >
               {description}
             </Text>
 
             <Box display="flex" justifyContent="center" pb={{ base: 1, md: 2 }}>
-              <Link href={registerHref} _hover={{ textDecoration: "none" }}>
-                <Button
-                  size={{ base: "md", md: "lg" }}
-                  minW={{ base: "190px", md: "240px" }}
-                  px={{ base: 10, md: 12 }}
-                  borderRadius="full"
-                  bg="#5e0b0b"
-                  color="white"
-                  fontStyle="italic"
-                  fontSize={{ base: "xl", md: "2xl" }}
-                  fontWeight="600"
-                  textDecoration="underline"
-                  _hover={{ bg: "#4a0808" }}
-                >
-                  {registerLabel}
-                </Button>
-              </Link>
+              <Button
+                asChild
+                size={{ base: "md", md: "lg" }}
+                minW={{ base: "190px", md: "240px" }}
+                px={{ base: 10, md: 12 }}
+                borderRadius="full"
+                bg="#5e0b0b"
+                color="white"
+                fontStyle="italic"
+                fontSize={{ base: "xl", md: "2xl" }}
+                fontWeight="600"
+                textDecoration="underline"
+                _hover={{ bg: "#4a0808", textDecoration: "none" }}
+              >
+                <a href={registerHref}>{registerLabel}</a>
+              </Button>
             </Box>
           </Stack>
         </HStack>
