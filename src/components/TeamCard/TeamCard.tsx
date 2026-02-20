@@ -1,4 +1,4 @@
-import { Avatar, Box, Text } from "@chakra-ui/react";
+import { Avatar, Box, Heading, Text } from "@chakra-ui/react";
 
 type TeamCardProps = {
   name: string;
@@ -46,16 +46,21 @@ export default function TeamCard({
           {imageUrl ? <Avatar.Image src={imageUrl} alt={`${name} avatar`} /> : null}
         </Avatar.Root>
 
-        <Text as="h3" fontSize="xl" fontWeight="bold" color="gray.800">
+        <Heading as="h3" size="md" color="gray.800">
           {name}
-        </Text>
+        </Heading>
 
         <Text fontSize="md" color="gray.700" fontStyle="italic">
           {position}
         </Text>
 
         {description ? (
-          <Text mt={3} fontSize="sm" color="gray.700">
+          <Text
+            mt={3}
+            fontSize="sm"
+            color="gray.700"
+            lineClamp={3}
+          >
             {description}
           </Text>
         ) : null}
