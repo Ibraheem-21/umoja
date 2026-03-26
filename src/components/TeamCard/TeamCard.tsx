@@ -1,4 +1,4 @@
-import { Avatar, Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 
 type TeamCardProps = {
   name: string;
@@ -13,6 +13,13 @@ export default function TeamCard({
   description,
   imageUrl,
 }: TeamCardProps) {
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
     <Box
       w={{ base: "full", sm: "xs" }}
@@ -24,27 +31,43 @@ export default function TeamCard({
       overflow="hidden"
     >
       {/* Top banner  */}
-      <Box h="30" bg="orange.900" />
+      <Box h="24" bg="orange.900" />
 
       {/* Content */}
-      <Box position="relative" p={6} pt={16} textAlign="center">
-        <Avatar.Root
+      <Box position="relative" p={6} pt={20} textAlign="center">
+        <Box
           position="absolute"
-          top="-16"
+          top="-12"
           left="50%"
           transform="translateX(-50%)"
-          w="30"
-          h="30"
+          w="24"
+          h="24"
+          borderRadius="full"
           borderWidth="4px"
           borderColor="bg.surface"
           boxShadow="lg"
           overflow="hidden"
+          bg="orange.100"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
         >
-          <Avatar.Fallback name={name} aria-label={`${name} profile photo`} />
-          {imageUrl ? <Avatar.Image src={imageUrl} alt={`${name} profile photo`} /> : null}
-        </Avatar.Root>
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={`${name} profile photo`}
+              w="full"
+              h="full"
+              objectFit="cover"
+            />
+          ) : (
+            <Text fontSize="3xl" fontWeight="bold" color="orange.900">
+              {initials}
+            </Text>
+          )}
+        </Box>
 
-        <Heading as="h3" size="md" color="gray.800">
+        <Heading as="h3" size="md" color="gray.800" mb={1}>
           {name}
         </Heading>
 
