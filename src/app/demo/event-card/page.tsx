@@ -7,7 +7,7 @@ const events = [
     title: "Spring Skills Clinic",
     date: "April 12, 2026",
     time: "10:00 AM",
-    location: "Harlem Community Gym",
+    location: "Harlem  Community Gym",
     description:
       "A fundamentals-focused clinic covering footwork, ball handling, and finishing for middle school athletes.",
     tags: ["Clinic", "Grades 6-8"],
